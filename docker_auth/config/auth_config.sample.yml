@@ -1,0 +1,18 @@
+server:
+  addr: ":5001"
+  certificate: "/certs/domain.crt"
+  key: "/certs/domain.key"
+
+token:
+  issuer: "Acme auth server"
+  expiration: 900
+
+users:
+  "admin":
+    # Password is specified as a BCrypt hash. Use `htpasswd -nB USERNAME` to generate.
+    password: "<bcrypted password>"
+
+acl:
+  - match: {account: "admin"}
+    actions: ["*"]
+    comment: "Admin has full access to everything."
