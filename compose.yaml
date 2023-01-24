@@ -1,11 +1,12 @@
 services:
   registory_auth:
-    image: docker_auth
+    image: cesanta/docker_auth
     restart: always
     volumes:
       - ./docker_auth/config:/config:ro
       - ./logs:/logs
       - ./certs:/certs
+    command: /config/auth_config.yml
     ports:
       - "5001:5001"
     env_file:
